@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initMusic();
     initPlaylist();
     initCalendar();
+    initScrollFade();
+    initCountUp();
+    initStoryReveal();
+    initLightbox();
 });
 
 function initMusic() {
@@ -54,6 +58,40 @@ function initMusic() {
 
     setIcons();
     toggle.addEventListener('click', toggleMusic);
+
+    // Mobile auto-collapse: show title briefly, then shrink to play/pause FAB
+    const player = document.getElementById('music-player');
+    if (player) {
+        const mql = window.matchMedia('(max-width: 760px)');
+        let collapseTimer = null;
+        const scheduleCollapse = () => {
+            clearTimeout(collapseTimer);
+            if (!mql.matches) {
+                player.classList.remove('is-collapsed');
+                return;
+            }
+            collapseTimer = setTimeout(() => {
+                player.classList.add('is-collapsed');
+            }, 3000);
+        };
+        const expandPlayer = () => {
+            player.classList.remove('is-collapsed');
+            scheduleCollapse();
+        };
+        if (mql.matches) {
+            scheduleCollapse();
+        }
+        mql.addEventListener('change', (e) => {
+            if (e.matches) scheduleCollapse();
+            else player.classList.remove('is-collapsed');
+        });
+        player.addEventListener('click', (e) => {
+            if (e.target === player && player.classList.contains('is-collapsed')) {
+                expandPlayer();
+            }
+        });
+        toggle.addEventListener('click', expandPlayer);
+    }
 }
 
 function initPlaylist() {
@@ -237,17 +275,27 @@ function initPlaylist() {
         }
         isPlaying = true;
         setIcons();
+        syncVinyl(true);
     });
 
     music.addEventListener('pause', () => {
         isPlaying = false;
         setIcons();
+        syncVinyl(false);
     });
 
     setIcons();
     toggle.addEventListener('click', toggleMusic);
     if (prevButton) prevButton.addEventListener('click', () => changeTrack(-1));
     if (nextButton) nextButton.addEventListener('click', () => changeTrack(1));
+}
+
+function syncVinyl(playing) {
+    const disc = document.getElementById('vinyl-disc');
+    const vinyl = document.getElementById('vinyl');
+    if (!disc || !vinyl) return;
+    disc.classList.toggle('is-playing', playing);
+    vinyl.classList.toggle('is-playing', playing);
 }
 
 function initCountdown() {
@@ -286,7 +334,7 @@ function initCountdown() {
 }
 
 function initCalendar() {
-    const btn = document.getElementById('calendar-btn');
+    const btn = document.getElementById('hero-cal-link');
     const footerBtn = document.getElementById('footer-calendar-btn');
     if (!btn && !footerBtn) return;
 
@@ -305,6 +353,116 @@ function initCalendar() {
 
     if (btn) btn.addEventListener('click', openCalendar);
     if (footerBtn) footerBtn.addEventListener('click', openCalendar);
+}
+
+function initScrollFade() {
+    const targets = document.querySelectorAll('.fade-in');
+    if (!('IntersectionObserver' in window) || !targets.length) return;
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+            if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    targets.forEach((el) => io.observe(el));
+}
+
+function initCountUp() {
+    const nums = document.querySelectorAll('.section-num[data-num]');
+    if (!nums.length) return;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+        nums.forEach((el) => { el.textContent = el.dataset.num; });
+        return;
+    }
+    if (!('IntersectionObserver' in window)) {
+        nums.forEach((el) => { el.textContent = el.dataset.num; });
+        return;
+    }
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const el = e.target;
+            const target = parseInt(el.dataset.num, 10);
+            animateCount(el, target);
+            io.unobserve(el);
+        });
+    }, { threshold: 0.5 });
+    nums.forEach((el) => io.observe(el));
+}
+
+function animateCount(el, target) {
+    const dur = 1400;
+    const start = performance.now();
+    function step(now) {
+        const t = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const value = Math.floor(eased * target);
+        el.textContent = String(value).padStart(2, '0');
+        if (t < 1) requestAnimationFrame(step);
+        else el.textContent = String(target).padStart(2, '0');
+    }
+    requestAnimationFrame(step);
+}
+
+function initStoryReveal() {
+    const paragraphs = document.querySelectorAll('.story-p');
+    if (!paragraphs.length) return;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+        paragraphs.forEach((p) => p.classList.add('is-revealed'));
+        return;
+    }
+    if (!('IntersectionObserver' in window)) {
+        paragraphs.forEach((p) => p.classList.add('is-revealed'));
+        return;
+    }
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+            if (e.isIntersecting) {
+                e.target.classList.add('is-revealed');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.25, rootMargin: '0px 0px -8% 0px' });
+    paragraphs.forEach((p) => io.observe(p));
+}
+
+function initLightbox() {
+    const dialog = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    if (!dialog || !img) return;
+
+    const cells = document.querySelectorAll('.gallery-cell');
+    cells.forEach((cell) => {
+        cell.addEventListener('click', () => {
+            const src = cell.getAttribute('data-full') || cell.querySelector('img')?.src;
+            if (!src) return;
+            img.src = src;
+            img.alt = cell.querySelector('img')?.alt || '';
+            if (typeof dialog.showModal === 'function') {
+                dialog.showModal();
+            } else {
+                dialog.setAttribute('open', '');
+            }
+        });
+    });
+
+    const close = () => {
+        if (typeof dialog.close === 'function') dialog.close();
+        else dialog.removeAttribute('open');
+        img.src = '';
+    };
+
+    dialog.querySelector('.lightbox-close')?.addEventListener('click', close);
+    dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) close();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && dialog.open) close();
+    });
 }
 
 function buildGoogleCalendarUrl(event) {
