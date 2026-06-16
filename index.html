@@ -6,7 +6,7 @@
     <title>Alicia & Victor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Raleway:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&family=Raleway:wght@100;200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="img/Favicon.png" type="image/x-icon">
 </head>
@@ -29,28 +29,22 @@
     </div>
 
     <section class="hero">
-        <picture class="hero-picture">
-            <source media="(min-width: 768px)" srcset="img/Hero.png">
-            <img src="img/Hero-Movil.png" alt="Victor & Alicia">
-        </picture>
-        <button class="btn-calendar" id="calendar-btn">
-            <svg class="cal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                <line x1="16" y1="2" x2="16" y2="6"/>
-                <line x1="8" y1="2" x2="8" y2="6"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
-                <rect x="6" y="13" width="2" height="2" fill="currentColor" stroke="none"/>
-                <rect x="11" y="13" width="2" height="2" fill="currentColor" stroke="none"/>
-                <rect x="16" y="13" width="2" height="2" fill="currentColor" stroke="none"/>
-                <rect x="6" y="17" width="2" height="2" fill="currentColor" stroke="none"/>
-                <rect x="11" y="17" width="2" height="2" fill="currentColor" stroke="none"/>
-                <rect x="16" y="17" width="2" height="2" fill="currentColor" stroke="none"/>
-            </svg>
-            <span class="cal-text">AGREGAR AL CALENDARIO</span>
-        </button>
+        <div class="hero-photo-wrap">
+            <img class="hero-photo" src="img/Fotos-pareja/3.jpeg" alt="Alicia y Víctor bajo los arcos de la hacienda">
+            <div class="hero-overlay">
+                <h1 class="hero-names">Alicia <span class="hero-amp">&amp;</span> Víctor</h1>
+            </div>
+        </div>
+        <div class="hero-caption">
+            <p class="hero-eyebrow">5 · DICIEMBRE · 2026</p>
+            <p class="hero-venue">Hacienda San Matías · Guanajuato</p>
+            <button class="hero-cal-link" id="hero-cal-link" type="button">
+                Agregar al calendario <span class="hero-cal-arrow" aria-hidden="true">→</span>
+            </button>
+        </div>
     </section>
 
-    <section class="countdown">
+    <section class="countdown fade-in">
         <p class="countdown-label">FALTAN</p>
         <div class="countdown-timer">
             <div class="countdown-unit">
@@ -76,17 +70,13 @@
         <span class="countdown-heart">&#9825;</span>
     </section>
 
-    <section class="parents">
+    <section class="parents fade-in">
         <h2 class="parents-title">CON LA BENDICIÓN DE NUESTROS PADRES</h2>
-        <img class="parents-branch" src="img/Rama2.png" alt="Decoración">
         <div class="parents-grid">
             <div class="parents-col">
                 <h3>Padres de Víctor</h3>
                 <p>Ma. Antonia Cornejo Hernández</p>
                 <p>Arturo Moreno Alzaga</p>
-            </div>
-            <div class="parents-center">
-                <img class="parents-ramita" src="img/Rama.png" alt="Decoración">
             </div>
             <div class="parents-col">
                 <h3>Padres de Alicia</h3>
@@ -96,265 +86,345 @@
         </div>
     </section>
 
-    <div class="two-cards">
-        <section class="card info-card dress-code">
-            <div class="dress-content">
-                <div class="dress-icon-big">
-                    <img src="img/gancho-de-ropa.png" alt="Gancho de ropa">
-                </div>
-                <div class="dress-text">
-                    <h3 class="info-label">CÓDIGO DE VESTIMENTA</h3>
-                    <p class="info-formal">FORMAL</p>
-                    <p class="info-suggest">SUGERENCIA DE COLORES</p>
-                </div>
-            </div>
-            <div class="color-dots">
+    <!-- ====== Marquee divider #1 ====== -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>ALICIA &amp; VÍCTOR&nbsp;&nbsp;·&nbsp;&nbsp;05 · 12 · 2026&nbsp;&nbsp;·&nbsp;&nbsp;HACIENDA SAN MATÍAS&nbsp;&nbsp;·&nbsp;&nbsp;GUANAJUATO&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+            <span>ALICIA &amp; VÍCTOR&nbsp;&nbsp;·&nbsp;&nbsp;05 · 12 · 2026&nbsp;&nbsp;·&nbsp;&nbsp;HACIENDA SAN MATÍAS&nbsp;&nbsp;·&nbsp;&nbsp;GUANAJUATO&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+        </div>
+    </div>
+
+    <!-- ====== Info: dress code + venue ====== -->
+    <section class="info fade-in" aria-label="Detalles del evento">
+        <div class="info-col info-dress">
+            <p class="info-eyebrow">CÓDIGO DE VESTIMENTA</p>
+            <h2 class="info-headline">Formal</h2>
+            <p class="info-sub">SUGERENCIA DE COLORES</p>
+            <div class="color-strip">
                 <span style="background: #C5AC96"></span>
                 <span style="background: #A89888"></span>
                 <span style="background: #8B9A7D"></span>
                 <span style="background: #6B7B6A"></span>
                 <span style="background: #2C3E50"></span>
             </div>
-        </section>
-
-        <section class="card info-card">
-            <h3 class="info-label">HACIENDA SAN MATÍAS</h3>
-            <img class="venue-img" src="img/Iglesia.png" alt="Hacienda San Matías">
-            <a href="#" class="btn-location" id="map-btn" target="_blank">
-                <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                </svg>
-                VER UBICACIÓN (GOOGLE MAPS)
-            </a>
-        </section>
-    </div>
-
-    <section class="event-details">
-        <div class="card itinerary-card">
-            <h3 class="section-title">ITINERARIO</h3>
-            <img class="section-branch" src="img/Rama2.png" alt="Decoración">
-            <div class="timeline">
-                <div class="timeline-icons">
-                    <span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 21v-2a4 4 0 0 0-8 0v2"/>
-                            <circle cx="12" cy="7" r="4"/>
-                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                            <path d="M2 21v-2a4 4 0 0 1 3-3.87"/>
-                            <path d="M8 3.13a4 4 0 0 0 0 7.75"/>
-                        </svg>
-                    </span>
-                    <span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M7 11a5 5 0 1 1 5 5"/>
-                            <path d="M17 13a5 5 0 1 1-5-5"/>
-                        </svg>
-                    </span>
-                    <span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2 7 7v15h10V7l-5-5Z"/>
-                            <path d="M9 22v-6h6v6"/>
-                            <path d="M10 9h4"/>
-                        </svg>
-                    </span>
-                    <span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M8 22h8"/>
-                            <path d="M12 11v11"/>
-                            <path d="M19 3H5l1 7a6 6 0 0 0 12 0l1-7Z"/>
-                        </svg>
-                    </span>
-                    <span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 11h16"/>
-                            <path d="M5 11a7 7 0 0 1 14 0"/>
-                            <path d="M12 4V2"/>
-                            <path d="M3 15h18"/>
-                            <path d="M6 19h12"/>
-                        </svg>
-                    </span>
-                    <span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 20s6-3.4 6-9a6 6 0 0 0-12 0c0 5.6 6 9 6 9Z"/>
-                            <path d="M12 11h.01"/>
-                        </svg>
-                    </span>
-                </div>
-                <div class="timeline-line" aria-hidden="true"></div>
-                <div class="timeline-list">
-                    <div>
-                        <strong>5:00 pm</strong>
-                        <span>Recepción de invitados</span>
-                    </div>
-                    <div>
-                        <strong>5:30 pm</strong>
-                        <span>Civil</span>
-                    </div>
-                    <div>
-                        <strong>6:00 pm</strong>
-                        <span>Boda religiosa</span>
-                    </div>
-                    <div>
-                        <strong>7:00 pm</strong>
-                        <span>Coctel de bienvenida</span>
-                    </div>
-                    <div>
-                        <strong>8:00 pm</strong>
-                        <span>Cena</span>
-                    </div>
-                    <div>
-                        <strong>1:00 am</strong>
-                        <span>Cierre</span>
-                    </div>
-                </div>
-            </div>
         </div>
-
-        <div class="details-side">
-            <div class="card detail-card weather-card">
-                <svg class="weather-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M18 46h28a12 12 0 0 0 0-24 17 17 0 0 0-32 8A8 8 0 0 0 18 46Z"/>
-                    <path d="M44 8v6"/>
-                    <path d="M54 14l-4 4"/>
-                    <path d="M60 28h-6"/>
-                    <path d="M30 8v6"/>
-                    <path d="M20 14l4 4"/>
-                </svg>
-                <div>
-                    <h3 class="section-title">CLIMA ESTIMADO</h3>
-                    <p>POR CONFIRMAR</p>
-                </div>
-            </div>
-
-            <div class="card detail-card music-playlist-card">
-                <div class="music-block">
-                    <h3 class="section-title">MÚSICA</h3>
-                    <span class="music-note-large">&#9836;</span>
-                    <p class="detail-song" id="section-song-title">A Thousand Years</p>
-                    <p class="detail-artist" id="section-song-artist">Christina Perri</p>
-                    <p class="track-count" id="track-count">1 / 20</p>
-                    <div class="detail-music-controls">
-                        <button class="detail-skip-btn" id="section-prev" type="button" aria-label="Canción anterior">&#8249;</button>
-                        <button class="detail-music-btn" id="section-music-toggle" aria-label="Pausar música">
-                            <span id="section-music-icon">&#9654;</span>
-                        </button>
-                        <button class="detail-skip-btn" id="section-next" type="button" aria-label="Siguiente canción">&#8250;</button>
-                    </div>
-                </div>
-
-                <div class="playlist-block">
-                    <div class="playlist-heading">
-                        <h3 class="section-title">PLAYLIST SPOTIFY</h3>
-                        <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.59 14.42a.75.75 0 0 1-1.03.25 9.3 9.3 0 0 0-7.2-.77.75.75 0 1 1-.43-1.44 10.8 10.8 0 0 1 8.4.93c.35.22.47.68.26 1.03Zm1.23-2.74a.88.88 0 0 1-1.2.3 11.54 11.54 0 0 0-8.94-.96.88.88 0 1 1-.5-1.68 13.3 13.3 0 0 1 10.34 1.14c.41.25.55.79.3 1.2Zm.11-2.86A14.2 14.2 0 0 0 6.9 9.64a1 1 0 1 1-.58-1.92 16.25 16.25 0 0 1 12.63 1.37 1 1 0 1 1-1.02 1.73Z"/>
-                        </svg>
-                    </div>
-                    <a class="btn-playlist" href="https://open.spotify.com/playlist/2X4NJXPPLiz2g8vhdFaDwC?si=vb248whgQ9GS49LTiCDZGQ" target="_blank" rel="noopener noreferrer">ESCUCHAR EN SPOTIFY</a>
-                </div>
-            </div>
+        <div class="info-col info-venue">
+            <p class="info-eyebrow">HACIENDA SAN MATÍAS</p>
+            <figure class="info-venue-photo">
+                <img src="img/Iglesia.png" alt="Hacienda San Matías">
+            </figure>
+            <a href="#" class="info-venue-link" id="map-btn" target="_blank" rel="noopener noreferrer">
+                VER UBICACIÓN <span class="info-venue-arrow" aria-hidden="true">→</span>
+            </a>
         </div>
     </section>
 
-    <section class="our-story">
-        <div class="story-header">
-            <h2 class="story-title">NUESTRA HISTORIA</h2>
-            <img class="story-branch" src="img/Rama2.png" alt="Decoración">
-        </div>
-
-        <div class="story-photo-wrap">
-            <div class="story-photo-frame">
-                <img src="img/Hero2.png" alt="Alicia y Victor juntos">
+    <!-- ====== Itinerario — day timeline ====== -->
+    <section class="itinerary fade-in" aria-label="Itinerario">
+        <header class="section-head">
+            <span class="section-num" data-num="01">00</span>
+            <h2 class="section-title">Itinerario</h2>
+        </header>
+        <div class="day-timeline">
+            <div class="day-axis" aria-hidden="true">
+                <span class="day-tick" style="--p: 0%">5 PM</span>
+                <span class="day-tick" style="--p: 12.5%">6 PM</span>
+                <span class="day-tick" style="--p: 25%">7 PM</span>
+                <span class="day-tick" style="--p: 37.5%">8 PM</span>
+                <span class="day-tick" style="--p: 50%">9 PM</span>
+                <span class="day-tick" style="--p: 62.5%">10 PM</span>
+                <span class="day-tick" style="--p: 75%">11 PM</span>
+                <span class="day-tick" style="--p: 87.5%">12 AM</span>
+                <span class="day-tick" style="--p: 100%">1 AM</span>
             </div>
+            <div class="day-bar"></div>
+            <ol class="day-events">
+                <li class="day-event above" style="--p: 0%">
+                    <span class="day-event-time">5:00 pm</span>
+                    <span class="day-event-label">Recepción de invitados</span>
+                    <span class="day-event-dot" aria-hidden="true"></span>
+                </li>
+                <li class="day-event below" style="--p: 6.25%">
+                    <span class="day-event-dot" aria-hidden="true"></span>
+                    <span class="day-event-time">5:30 pm</span>
+                    <span class="day-event-label">Civil</span>
+                </li>
+                <li class="day-event above" style="--p: 12.5%">
+                    <span class="day-event-time">6:00 pm</span>
+                    <span class="day-event-label">Boda religiosa</span>
+                    <span class="day-event-dot" aria-hidden="true"></span>
+                </li>
+                <li class="day-event below" style="--p: 25%">
+                    <span class="day-event-dot" aria-hidden="true"></span>
+                    <span class="day-event-time">7:00 pm</span>
+                    <span class="day-event-label">Coctel de bienvenida</span>
+                </li>
+                <li class="day-event above" style="--p: 37.5%">
+                    <span class="day-event-time">8:00 pm</span>
+                    <span class="day-event-label">Cena</span>
+                    <span class="day-event-dot" aria-hidden="true"></span>
+                </li>
+                <li class="day-event below" style="--p: 100%">
+                    <span class="day-event-dot" aria-hidden="true"></span>
+                    <span class="day-event-time">1:00 am</span>
+                    <span class="day-event-label">Cierre</span>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ====== Marquee divider #2 ====== -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>05 · 12 · 2026&nbsp;&nbsp;·&nbsp;&nbsp;HACIENDA SAN MATÍAS&nbsp;&nbsp;·&nbsp;&nbsp;GUANAJUATO&nbsp;&nbsp;·&nbsp;&nbsp;ALICIA &amp; VÍCTOR&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+            <span>05 · 12 · 2026&nbsp;&nbsp;·&nbsp;&nbsp;HACIENDA SAN MATÍAS&nbsp;&nbsp;·&nbsp;&nbsp;GUANAJUATO&nbsp;&nbsp;·&nbsp;&nbsp;ALICIA &amp; VÍCTOR&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+        </div>
+    </div>
+
+    <!-- ====== Now: weather + music ====== -->
+    <section class="now fade-in" aria-label="El día">
+        <header class="section-head">
+            <span class="section-num" data-num="05">00</span>
+            <h2 class="section-title">El día</h2>
+        </header>
+
+        <div class="now-cards">
+            <article class="now-card now-card-weather">
+                <div class="now-card-eyebrow">
+                    <span class="now-card-dot"></span>
+                    <span>Clima estimado</span>
+                </div>
+                <div class="weather-art" aria-hidden="true">
+                    <div class="icon sun-shower">
+                        <div class="cloud"></div>
+                        <div class="sun">
+                            <div class="rays"></div>
+                        </div>
+                        <div class="rain"></div>
+                    </div>
+                </div>
+                <p class="now-card-temp">
+                    <span class="now-temp-value">17°</span>
+                    <span class="now-temp-range">14° · 22°</span>
+                </p>
+                <p class="now-card-status">
+                    <span class="now-status-dot"></span>
+                    POR CONFIRMAR
+                </p>
+            </article>
+
+            <div class="now-card-divider" aria-hidden="true"></div>
+
+            <article class="now-card now-card-music">
+                <div class="now-card-eyebrow">
+                    <span class="now-card-dot"></span>
+                    <span>Música</span>
+                </div>
+                <div class="vinyl" id="vinyl">
+                    <div class="vinyl-disc" id="vinyl-disc">
+                        <div class="vinyl-grooves" aria-hidden="true"></div>
+                        <div class="vinyl-label">
+                            <span class="vinyl-eyebrow">EN VIVO</span>
+                            <span class="vinyl-title" id="section-song-title">A Thousand Years</span>
+                            <span class="vinyl-artist" id="section-song-artist">Christina Perri</span>
+                        </div>
+                        <span class="vinyl-hole" aria-hidden="true"></span>
+                    </div>
+                    <div class="vinyl-arm" aria-hidden="true">
+                        <span class="vinyl-arm-pivot"></span>
+                        <span class="vinyl-arm-head"></span>
+                    </div>
+                </div>
+                <p class="vinyl-count" id="track-count">1 / 20</p>
+                <div class="now-controls">
+                    <button class="now-skip" id="section-prev" type="button" aria-label="Canción anterior">&#8249;</button>
+                    <button class="now-play" id="section-music-toggle" type="button" aria-label="Reproducir música">
+                        <span id="section-music-icon">&#9654;</span>
+                    </button>
+                    <button class="now-skip" id="section-next" type="button" aria-label="Siguiente canción">&#8250;</button>
+                </div>
+                <a class="now-spotify" href="https://open.spotify.com/playlist/2X4NJXPPLiz2g8vhdFaDwC?si=vb248whgQ9GS49LTiCDZGQ" target="_blank" rel="noopener noreferrer">
+                    Playlist en Spotify <span class="now-spotify-arrow" aria-hidden="true">→</span>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- ====== Story ====== -->
+    <section class="story fade-in" aria-label="Nuestra historia">
+        <header class="section-head">
+            <span class="section-num" data-num="02">00</span>
+            <h2 class="section-title">Nuestra historia</h2>
+        </header>
+
+        <figure class="story-photo">
+            <img src="img/Fotos-pareja/5.jpeg" alt="Alicia y Víctor">
+            <div class="story-photo-stamp" aria-hidden="true">
+                <span class="story-photo-stamp-line"></span>
+                <span class="story-photo-stamp-text">DICIEMBRE &middot; 2026</span>
+            </div>
+        </figure>
+
+        <div class="story-divider" aria-hidden="true">
+            <span class="story-divider-mark"></span>
         </div>
 
-        <div class="story-content">
-            <p>Nuestra historia demuestra que el amor siempre llega en el momento perfecto.</p>
-            <p>Todo comenzó con un cruce de miradas en una veterinaria donde nos encontramos para descubrir que la vida es mejor compartida.</p>
-            <p>Juntos aprendimos a sortear los retos que el camino nos presentó, transformando aquel encuentro en nuestra más absoluta certeza.</p>
-            <p>De la mano de nuestras hijas, hemos comprobado que el amor multiplica la felicidad.</p>
-            <p>Estamos listos para dar el "sí" más importante.</p>
+        <div class="story-body">
+            <p class="story-p">Todo comenzó con un cruce de miradas en una veterinaria donde nos encontramos para descubrir que la vida es mejor compartida.</p>
+            <p class="story-p">Juntos aprendimos a sortear los retos que el camino nos presentó, transformando aquel encuentro en nuestra más absoluta certeza.</p>
+            <p class="story-p">De la mano de nuestras hijas, hemos comprobado que el amor multiplica la felicidad.</p>
+            <p class="story-p">Estamos listos para dar el &ldquo;sí&rdquo; más importante.</p>
+        </div>
+
+        <div class="story-highlight-wrap">
             <p class="story-highlight">¡Acompáñanos a celebrar que este gran equipo es para siempre!</p>
+            <p class="story-signature">Alicia <span>&amp;</span> Víctor</p>
         </div>
-
-        <img class="story-flower" src="img/Hoja3.png" alt="Decoración floral">
     </section>
 
-    <section class="guest-links">
-        <div class="guest-link-row">
-            <a class="guest-link-item" href="#" target="_blank" rel="noopener noreferrer">
-                <span class="guest-link-icon">
-                    <img src="img/iconos/instagram.png" alt="Instagram">
-                </span>
-                <span class="guest-link-text">COMPARTE TUS FOTOS #BodaAliciayVictor</span>
-            </a>
-
-            <a class="guest-link-item" href="#" target="_blank" rel="noopener noreferrer">
-                <span class="guest-link-icon">
-                    <img src="img/iconos/Ubicacion.png" alt="Ubicación">
-                </span>
-                <span class="guest-link-text">CÓMO LLEGAR (GOOGLE MAPS)</span>
-            </a>
-
-            <button class="guest-link-item" id="footer-calendar-btn" type="button">
-                <span class="guest-link-icon">
-                    <img src="img/iconos/calendario.png" alt="Calendario">
-                </span>
-                <span class="guest-link-text">AGREGAR AL CALENDARIO</span>
-            </button>
-
-            <a class="guest-link-item" href="#" target="_blank" rel="noopener noreferrer">
-                <span class="guest-link-icon">
-                    <img src="img/iconos/Fotos.png" alt="Álbum de fotos">
-                </span>
-                <span class="guest-link-text">ÁLBUM DE FOTOS DIGITAL</span>
-            </a>
-
-            <a class="guest-link-item" href="#" target="_blank" rel="noopener noreferrer">
-                <span class="guest-link-icon">
-                    <img src="img/iconos/whastapp.png" alt="WhatsApp">
-                </span>
-                <span class="guest-link-text">CONFIRMA TU ASISTENCIA</span>
-            </a>
+    <!-- ====== Marquee divider #3 ====== -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>HACIENDA SAN MATÍAS&nbsp;&nbsp;·&nbsp;&nbsp;GUANAJUATO&nbsp;&nbsp;·&nbsp;&nbsp;05 · 12 · 2026&nbsp;&nbsp;·&nbsp;&nbsp;ALICIA &amp; VÍCTOR&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+            <span>HACIENDA SAN MATÍAS&nbsp;&nbsp;·&nbsp;&nbsp;GUANAJUATO&nbsp;&nbsp;·&nbsp;&nbsp;05 · 12 · 2026&nbsp;&nbsp;·&nbsp;&nbsp;ALICIA &amp; VÍCTOR&nbsp;&nbsp;·&nbsp;&nbsp;</span>
         </div>
+    </div>
 
-        <div class="guest-card-row">
-            <div class="guest-info-card">
-                <span class="guest-info-icon">
-                    <img src="img/iconos/HOSPEDAJE.png" alt="Hospedaje">
-                </span>
-                <div class="guest-info-copy">
-                    <h3>SUGERENCIA DE HOSPEDAJE</h3>
-                    <p>PENDIENTE</p>
+    <!-- ====== Gallery: horizontal scroll ====== -->
+    <section class="gallery fade-in" aria-label="Galería">
+        <header class="section-head">
+            <span class="section-num" data-num="03">00</span>
+            <h2 class="section-title">Galería</h2>
+        </header>
+        <div class="gallery-track">
+            <figure class="gallery-cell"><img src="img/Fotos-pareja/1.jpeg" alt=""></figure>
+            <figure class="gallery-cell"><img src="img/Fotos-pareja/2.jpeg" alt=""></figure>
+            <figure class="gallery-cell"><img src="img/Fotos-pareja/4.jpeg" alt=""></figure>
+            <figure class="gallery-cell"><img src="img/Fotos-pareja/5.jpeg" alt=""></figure>
+        </div>
+        <p class="gallery-hint">desliza →</p>
+    </section>
+
+    <!-- ====== Links ====== -->
+    <section class="links fade-in" aria-label="Para ti">
+        <header class="section-head">
+            <span class="section-num" data-num="04">00</span>
+            <h2 class="section-title">Para ti</h2>
+        </header>
+
+        <div class="links-blocks">
+            <div class="links-block">
+                <div class="links-block-head">
+                    <span class="links-block-label">Acciones</span>
+                    <span class="links-block-count">05</span>
                 </div>
+                <ol class="links-list">
+                    <li class="links-item">
+                        <span class="links-num">01</span>
+                        <a class="links-row" href="#" target="_blank" rel="noopener noreferrer">
+                            <span class="links-icon"><img src="img/iconos/instagram.png" alt=""></span>
+                            <span class="links-text">
+                                <span class="links-label">COMPARTE TUS FOTOS</span>
+                                <span class="links-sub">#BodaAliciayVictor</span>
+                            </span>
+                            <span class="links-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                    <li class="links-item">
+                        <span class="links-num">02</span>
+                        <a class="links-row" href="#" target="_blank" rel="noopener noreferrer">
+                            <span class="links-icon"><img src="img/iconos/Ubicacion.png" alt=""></span>
+                            <span class="links-text">
+                                <span class="links-label">CÓMO LLEGAR</span>
+                                <span class="links-sub">Google Maps</span>
+                            </span>
+                            <span class="links-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                    <li class="links-item">
+                        <span class="links-num">03</span>
+                        <button class="links-row" id="footer-calendar-btn" type="button">
+                            <span class="links-icon"><img src="img/iconos/calendario.png" alt=""></span>
+                            <span class="links-text">
+                                <span class="links-label">AGREGAR AL CALENDARIO</span>
+                                <span class="links-sub">05 · 12 · 2026</span>
+                            </span>
+                            <span class="links-arrow" aria-hidden="true">→</span>
+                        </button>
+                    </li>
+                    <li class="links-item">
+                        <span class="links-num">04</span>
+                        <a class="links-row" href="#" target="_blank" rel="noopener noreferrer">
+                            <span class="links-icon"><img src="img/iconos/Fotos.png" alt=""></span>
+                            <span class="links-text">
+                                <span class="links-label">ÁLBUM DE FOTOS DIGITAL</span>
+                                <span class="links-sub">Recuerdos</span>
+                            </span>
+                            <span class="links-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                    <li class="links-item links-item-feature">
+                        <span class="links-num">05</span>
+                        <a class="links-row" href="#" target="_blank" rel="noopener noreferrer">
+                            <span class="links-icon"><img src="img/iconos/whastapp.png" alt=""></span>
+                            <span class="links-text">
+                                <span class="links-label">CONFIRMA TU ASISTENCIA</span>
+                                <span class="links-sub">Vía WhatsApp</span>
+                            </span>
+                            <span class="links-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </li>
+                </ol>
             </div>
 
-            <div class="guest-info-card">
-                <span class="guest-info-icon">
-                    <img src="img/iconos/menu.png" alt="Menú">
-                </span>
-                <div class="guest-info-copy">
-                    <h3>MENÚ DEL EVENTO</h3>
-                    <p>PENDIENTE</p>
-                </div>
+            <div class="links-block-divider" aria-hidden="true">
+                <span class="links-block-divider-dot"></span>
             </div>
 
-            <div class="guest-info-card">
-                <span class="guest-info-icon">
-                    <img src="img/iconos/ACTIVIDADES.png" alt="Actividades">
-                </span>
-                <div class="guest-info-copy">
-                    <h3>ACTIVIDADES EN LA CIUDAD</h3>
-                    <p>PENDIENTE</p>
+            <div class="links-block">
+                <div class="links-block-head">
+                    <span class="links-block-label">Información</span>
+                    <span class="links-block-count">03</span>
                 </div>
+                <ol class="links-info-list">
+                    <li class="links-info-item">
+                        <span class="links-info-icon"><img src="img/iconos/HOSPEDAJE.png" alt=""></span>
+                        <div class="links-info-meta">
+                            <h3>Sugerencia de hospedaje</h3>
+                            <p>PENDIENTE</p>
+                        </div>
+                    </li>
+                    <li class="links-info-item">
+                        <span class="links-info-icon"><img src="img/iconos/menu.png" alt=""></span>
+                        <div class="links-info-meta">
+                            <h3>Menú del evento</h3>
+                            <p>PENDIENTE</p>
+                        </div>
+                    </li>
+                    <li class="links-info-item">
+                        <span class="links-info-icon"><img src="img/iconos/ACTIVIDADES.png" alt=""></span>
+                        <div class="links-info-meta">
+                            <h3>Actividades en la ciudad</h3>
+                            <p>PENDIENTE</p>
+                        </div>
+                    </li>
+                </ol>
             </div>
         </div>
+    </section>
 
-        <p class="guest-thanks">Gracias por ser parte de este día tan especial</p>
+    <!-- ====== Footer thanks ====== -->
+    <section class="footer-thanks fade-in" aria-label="Agradecimiento">
+        <p class="footer-thanks-line">Gracias por ser parte de este día tan especial</p>
     </section>
 
     </div>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
+        <button class="lightbox-close" type="button" aria-label="Cerrar">×</button>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    </dialog>
+
     <script src="script.js"></script>
 </body>
 </html>
